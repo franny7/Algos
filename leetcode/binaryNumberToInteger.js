@@ -51,3 +51,5 @@ var getDecimalValue = function (head) {
 
   return parseInt(binary, 2);
 };
+
+// To remember how to understand this problem again read line 1 above.
