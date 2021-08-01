@@ -50,6 +50,37 @@
   @return {number}
  */
 
+// var romanToInt = (s) => {
+//   let numerals = {
+//     I: 1,
+//     V: 5,
+//     X: 10,
+//     L: 50,
+//     C: 100,
+//     D: 500,
+//     M: 1000,
+//   };
+
+//   let total = 0;
+//   for (let i = 0; i < s.length ; i++) {
+//     let current = numerals[s.charAt(i)];
+//     let next = numerals[s.charAt(i + 1)];
+
+//     if (next) {
+//       if (current >= next) {
+//         total += current;
+//       } else {
+//         total += next - current;
+//         i++;
+//       }
+//     } else {
+//       total += current;
+//     }
+//   }
+
+//   return total;
+// };
+
 var romanToInt = (s) => {
   let numerals = {
     I: 1,
@@ -62,21 +93,16 @@ var romanToInt = (s) => {
   };
 
   let total = 0;
-  for (let i = 0; i < s.length; i++) {
-    let current = numerals[s.charAt(i)];
-    let next = numerals[s.charAt(i + 1)];
+  for (let i = s.length - 1; i >= 0; i--) {
+    let curr = numerals[s.charAt(i)];
+    let prev = numerals[s.charAt(i - 1)];
 
-    if (next) {
-      if (current >= next) {
-        total += current;
-      } else {
-        total += next - current;
-        i++;
-      }
+    if (prev < curr) {
+      total += curr - prev;
+      i--;
     } else {
-      total += current;
+      total += curr;
     }
   }
-
   return total;
 };
