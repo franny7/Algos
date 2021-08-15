@@ -46,14 +46,14 @@ var isAnagram = function (s, t) {
     return false;
   }
 
-  for (var i = 0; i < lengthS; i++) {
+  for (let i = 0; i < lengthS; i++) {
     if (!map[s[i]]) {
       map[s[i]] = 0;
     }
     map[s[i]]++;
   }
 
-  for (var j = 0; j < lengthT; j++) {
+  for (let j = 0; j < lengthT; j++) {
     if (!map[t[j]]) {
       return false;
     }
