@@ -22,7 +22,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
   @param {number[]} nums
   @return {number}
  */
-var removeDuplicates = function (nums) {
+var removeDuplicates = (nums) => {
   // initiate first pointer
   let i = 0;
   // initiate second pointer
