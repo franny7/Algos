@@ -29,9 +29,11 @@ var removeDuplicates = (nums) => {
   for (let j = 1; j < nums.length; j++) {
     // 3. check if the first pointer [0] is not equal to the second pointer [1], if they aren't equal increment i (j is auto incrementing with the for loop)
     if (nums[i] !== nums[j]) {
+      // 4. increment i once to leave the prev i equal to the value it currently had, and then set the new i equal to the value of j
       i++;
       nums[i] = nums[j];
     }
   }
+  // 5. return i + 1 to return all of the values that are in the adjusted nums array
   return i + 1;
 };

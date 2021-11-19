@@ -40,9 +40,12 @@ var solution = function (isBadVersion) {
    * @return {integer} The first bad version
    */
   return function (n) {
+    // 1. start from the end and check if the prev version is bad
     while (isBadVersion(n - 1)) {
+      // 2. if previous is bad, decrement n
       n--;
     }
+    // 3. once the while loop finds a prev one that is not bad, return the current version n because that is the first bad version.
     return n;
   };
 };
