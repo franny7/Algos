@@ -23,11 +23,12 @@ It does not matter what you leave beyond the returned k (hence they are undersco
   @return {number}
  */
 var removeDuplicates = (nums) => {
-  // initiate first pointer
+  // 1. initiate first pointer
   let i = 0;
-  // initiate second pointer
+  // 2. initiate second pointer
   for (let j = 1; j < nums.length; j++) {
-    if (nums[i] != nums[j]) {
+    // 3. check if the first pointer [0] is not equal to the second pointer [1], if they aren't equal increment i (j is auto incrementing with the for loop)
+    if (nums[i] !== nums[j]) {
       i++;
       nums[i] = nums[j];
     }
