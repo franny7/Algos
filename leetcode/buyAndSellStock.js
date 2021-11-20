@@ -30,11 +30,15 @@
  */
 
 var maxProfit = function (prices) {
+  // 1. Initiate out 'total' variable
   let profit = 0;
+  // 2. Loop through our prices array starting at the second element
   for (let i = 1; i < prices.length; i++) {
+    // 3. If our current price is greater than our previous price, add to our profit the difference between the current price and the prev price
     if (prices[i] > prices[i - 1]) {
       profit += prices[i] - prices[i - 1];
     }
   }
+  // 4. Return our profit
   return profit;
 };
