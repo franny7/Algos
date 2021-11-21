@@ -24,23 +24,18 @@ rotate 2 steps to the right: [3,99,-1,-100]
 */
 
 var rotate = function (nums, k) {
-  // let endOfArr = nums.length;
-  // while(endOfArr > 0 && k > 0) {
-  //     let lastEl = nums.pop();
-  //     nums.unshift(lastEl);
-  //     endOfArr--;
-  //     k--;
-  // }
-  // return nums;
+  //     let i = nums.length;
+  //     while(k > 0 && i--) {
+  //         let lastEl = nums.pop();
+  //         nums.unshift(lastEl);
+  //         k--;
+  //         console.log(nums, k)
+  //     }
+  //     return nums;
 
-  for (let i = nums.length; i > 0; i--) {
-    if (k !== 0) {
-      let lastEl = nums.pop();
-      nums.unshift(lastEl);
-      k--;
-    } else {
-      return nums;
-    }
-  }
-  return nums;
+  let n = nums.length;
+  // if k > n (ex: rotate([1,2], 3),  result = [2,1])
+  if (k % n) k = k % n;
+  // swaping the list inplace for O(1) space complexity
+  nums.splice(0, 0, ...nums.splice(n - k));
 };
