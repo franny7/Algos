@@ -33,7 +33,7 @@ let singleNumber = (nums) => {
   let map = {};
   //     2. loop through nums array
   for (let i = 0; i < nums.length; i++) {
-    //     3. check if key in map already exists, if so set its value to false, if not set it to true
+    //     3. check if key in map already exists, if so set its value to false bc that means there are two of them, if not initialize it to true
     if (map[nums[i]]) {
       map[nums[i]] = false;
     } else {
