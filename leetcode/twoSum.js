@@ -26,11 +26,19 @@
 var twoSum = function (nums, target) {
   for (let i = 0; i < nums.length; i++) {
     for (let j = i + 1; j < nums.length; j++) {
-      if (nums[i] + nums[j] == target) {
+      if (nums[i] + nums[j] === target) {
         return [i, j];
       }
     }
   }
 };
 
-// Challenge: refactor this solution to not be 0(n^2)
+/////// TRY TO UNDERSTAND THIS!!!
+// refactored solution to not be 0(n^2)
+var twoSum = function (nums, target) {
+  let myMap = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    if (myMap.has(nums[i])) return [i, myMap.get(nums[i])];
+    else myMap.set(target - nums[i], i);
+  }
+};
