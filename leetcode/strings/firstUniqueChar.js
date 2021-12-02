@@ -47,3 +47,5 @@ var firstUniqChar = function (s) {
   }
   return -1;
 };
+
+////// Completed in 18 minutes!!!
