@@ -33,12 +33,16 @@ var twoSum = function (nums, target) {
   }
 };
 
-/////// TRY TO UNDERSTAND THIS!!!
-// refactored solution to not be 0(n^2)
-var twoSum = function (nums, target) {
-  let myMap = new Map();
-  for (let i = 0; i < nums.length; i++) {
-    if (myMap.has(nums[i])) return [i, myMap.get(nums[i])];
-    else myMap.set(target - nums[i], i);
-  }
+    /////// TRY TO UNDERSTAND THIS MORE!
+//     1. create map object using constructor to have access to built-in object methods
+let myMap = new Map();
+//     2. loop through nums array
+    for(let i = 0; i < nums.length; i++) {
+//         3.check if nums has an element with the value of 0, if so return [0, and the target values index], else we are creating a key value pair of (target-nums[i], and its index)
+        if(myMap.has(nums[i])) {
+            return [i, myMap.get(nums[i])];
+        } else {
+            myMap.set(target - nums[i], i);
+        }
+    }
 };
