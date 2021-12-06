@@ -38,14 +38,18 @@
 // Hashmap solution here!
 
 var isAnagram = function (s, t) {
+  // 1. create variables for length of s and t because we will refer to them multiple times
   let lengthS = s.length;
   let lengthT = t.length;
+  // 2. create an empty object
   let map = {};
 
+  // 3. base case
   if (lengthS !== lengthT) {
     return false;
   }
 
+  // 4. loop though first string (s) and check if key already exists, if it d/n exist yet, add it to our object and set it equal to zero. if it does or d/n exist either way increment the value each iteration
   for (let i = 0; i < lengthS; i++) {
     if (!map[s[i]]) {
       map[s[i]] = 0;
@@ -53,6 +57,7 @@ var isAnagram = function (s, t) {
     map[s[i]]++;
   }
 
+  // 5. loop through the second string (t) if any of the elements dont exist in our map that we already created, return false. If it does alreadt exist, decrement it
   for (let j = 0; j < lengthT; j++) {
     if (!map[t[j]]) {
       return false;
@@ -60,5 +65,8 @@ var isAnagram = function (s, t) {
     map[t[j]]--;
   }
 
+  // return true by defauly but if any of our cases above don't pass, it will return false instead
   return true;
 };
+
+/////// This is the most optimal solution!
