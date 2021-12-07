@@ -25,6 +25,8 @@ nums is sorted in non-decreasing order.
   @return {number[]}
  */
 
+/////best solution
+
 var sortedSquares = function (nums) {
   //     1. loop through nums and square each element
   for (let i = 0; i < nums.length; i++) {
@@ -34,13 +36,35 @@ var sortedSquares = function (nums) {
   return nums.sort((a, b) => a - b);
 };
 
-/////similar solution but while loop instead of for loop below
+/////similar solution but while loop instead of for loop
 // let i = 0;
 // while(i < nums.length) {
 //     nums[i] = nums[i] * nums[i];
 //     i++;
 // }
 // return nums.sort((a,b) => return a - b);
+
+///// another solution using array with two pointers
+// //creating new empty array
+// let result = [];
+// //initiate index at 0
+// let i = 0;
+// //creating a second var to loop through the entire arr
+// for (let j = 0; j < nums.length; j++) {
+//   let temp = nums[j] * nums[i];
+//   result.push(temp);
+//   i++;
+// }
+// return result.sort((a, b) => a - b);
+
+/////// Another solution using .map()
+// var sortedSquares = function(nums) {
+//     // loop through the original array and square each number
+//     let newArr = nums.map((num) => num * num)
+// console.log(newArr);
+// // return the array in increasing order
+//     return  newArr.sort((a, b) => a - b);
+// };
 
 ///// If I can figure out a way to sort the array as I loop through it on line 32 it might help the time complexity
 ///// was able to finish this solution in four minutes though with pseudocode, not bad
