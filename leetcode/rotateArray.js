@@ -35,7 +35,9 @@ var rotate = function (nums, k) {
 
   let n = nums.length;
   // if k > n (ex: rotate([1,2], 3),  result = [2,1])
-  if (k % n) k = k % n;
+  if (k % n) {
+    k = k % n;
+  }
   // swaping the list inplace for O(1) space complexity
   nums.splice(0, 0, ...nums.splice(n - k));
 };
