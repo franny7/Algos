@@ -24,20 +24,22 @@ rotate 2 steps to the right: [3,99,-1,-100]
 */
 
 var rotate = function (nums, k) {
-  //     let i = nums.length;
-  //     while(k > 0 && i--) {
-  //         let lastEl = nums.pop();
-  //         nums.unshift(lastEl);
-  //         k--;
-  //         console.log(nums, k)
-  //     }
-  //     return nums;
-
   let n = nums.length;
-  // if k > n (ex: rotate([1,2], 3),  result = [2,1])
+  // if k > n (ex: rotate([1,2], 5),  result = [2,1])
+  // in this case, k below is equal to 1
   if (k % n) {
     k = k % n;
   }
   // swaping the list inplace for O(1) space complexity
+  // splice into nums, start at 0, delete nothing, starting at n-k throw in the rest of nums (...nums) starting at the value of n-k
   nums.splice(0, 0, ...nums.splice(n - k));
 };
+
+///// Was trying to complete this solution but not sure what was missing
+// let i = nums.length;
+// while(k > 0 && i--) {
+//     let lastEl = nums.pop();
+//     nums.unshift(lastEl);
+//     k--;
+// }
+// return nums;
