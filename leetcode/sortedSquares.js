@@ -29,15 +29,18 @@ var sortedSquares = function (nums) {
   //     1. loop through nums and square each element
   for (let i = 0; i < nums.length; i++) {
     nums[i] = nums[i] * nums[i];
-    // if(nums[i] < nums[i - 1]) {
-    //     [nums[i-1], nums[i]] = [nums[i], nums[i-1]];
-    // }
   }
-  //     2. sort our new numbers
-  nums.sort((a, b) => a - b);
-  //     3. return our array
-  return nums;
+  //     2. sort our new numbers, return array
+  return nums.sort((a, b) => a - b);
 };
 
+/////similar solution but while loop instead of for loop below
+// let i = 0;
+// while(i < nums.length) {
+//     nums[i] = nums[i] * nums[i];
+//     i++;
+// }
+// return nums.sort((a,b) => return a - b);
+
 ///// If I can figure out a way to sort the array as I loop through it on line 32 it might help the time complexity
-///// was able to finish this solution in four minutes though with pseudocode so not bad
+///// was able to finish this solution in four minutes though with pseudocode, not bad
