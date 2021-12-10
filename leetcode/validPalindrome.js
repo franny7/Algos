@@ -32,12 +32,14 @@ s consists only of printable ASCII characters.
  @return {boolean}
  */
 var isPalindrome = function (s) {
+  // 1. turn string into lowercase and alphanumeric only
   let string = s.replace(/[^a-zA-Z0-9]+/g, '').toLowerCase();
-  console.log(string);
+  // 2. create empty array varibale
   let palindrome = [];
-
+  // 3. loop through string backward and push every iteration string[i] into empty palindrome array
   for (let i = string.length - 1; i >= 0; i--) {
     palindrome.push(string[i]);
   }
+  // 4. turn paldrome arrya into a string, if it is equal to our first string, return true else false
   return palindrome.join('') === string ? true : false;
 };
