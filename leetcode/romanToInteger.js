@@ -82,6 +82,7 @@
 // };
 
 var romanToInt = (s) => {
+  // 1. create our numerals object
   let numerals = {
     I: 1,
     V: 5,
@@ -92,11 +93,15 @@ var romanToInt = (s) => {
     M: 1000,
   };
 
+  // 2. create total variable to track our number
   let total = 0;
+
+  // 3. loop through numerals object using s
   for (let i = s.length - 1; i >= 0; i--) {
     let curr = numerals[s.charAt(i)];
     let prev = numerals[s.charAt(i - 1)];
 
+    // 4. check if our prev is less than our curr, if so add the curr - previous numeral to our total. else add the current to our total.
     if (prev < curr) {
       total += curr - prev;
       i--;
@@ -104,5 +109,7 @@ var romanToInt = (s) => {
       total += curr;
     }
   }
+
+  // 5. return total
   return total;
 };
