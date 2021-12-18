@@ -51,4 +51,4 @@ var majorityElement = function (nums) {
   /////// solved this in 10 minutes!!! Proud moment
 
   ////Follow up: Could you solve the problem in linear time and in O(1) space?
-};
+}; ////// try to see if I can push the key of any values that are greater than our threshold as I loop through the first for loop
