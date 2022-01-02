@@ -48,10 +48,14 @@ s consist of printable ASCII characters.
 
 /////// second solution, faster than 97%
 var reverseVowels = function (s) {
+  // turn string into an array to be able to use our array methods
   let strArr = s.split('');
+
+  // create two pointers at each end of the array
   let i = 0;
   let j = strArr.length - 1;
 
+  // hard code our vowels
   const vowels = {
     a: true,
     A: true,
@@ -64,6 +68,8 @@ var reverseVowels = function (s) {
     u: true,
     U: true,
   };
+
+  // loop through strArr using our vowels object to see if any elements in the loop are a vowel. if the arent vowels, either decrement or increment whether its i or j. if it is a vowel then swap the two vowels that are at i and j.
   while (i < j) {
     if (!vowels[strArr[i]]) {
       i++;
@@ -72,12 +78,12 @@ var reverseVowels = function (s) {
       j--;
     }
     if (vowels[strArr[i]] && vowels[strArr[j]]) {
-      let temp = strArr[i];
-      strArr[i] = strArr[j];
-      strArr[j] = temp;
+      [strArr[i], strArr[j]] = [strArr[j], strArr[i]];
       i++;
       j--;
     }
   }
+
+  // we must return a string so we have to join our array
   return strArr.join('');
 };
