@@ -26,3 +26,44 @@ Constraints:
 -104 <= nums[i] <= 104
 nums is sorted in non-decreasing order.
 */
+
+/*
+  @param {number[]} nums
+  @return {number}
+*/
+
+///////// My solution ////////
+const removeDuplicates = (nums) => {
+  let cur = 1;
+  for (let i = 2; i < nums.length; ++i) {
+    if (nums[i] > nums[cur]) {
+      ++cur;
+      nums[cur] = nums[i];
+    } else {
+      if (nums[cur] !== nums[cur - 1]) {
+        ++cur;
+        nums[cur] = nums[i];
+      }
+    }
+  }
+  return cur + 1;
+};
+
+///////// Recursion solution //////////
+var removeDuplicates = function (nums) {
+  return helper(nums, 0, 2, nums.length);
+};
+
+const helper = (nums, start, next, end) => {
+  while (next < end) {
+    if (nums[start] == nums[next]) {
+      nums.push(nums[next]);
+      nums.splice(next, 1);
+      end--;
+    } else {
+      start = next - 1;
+      next = start + 2;
+    }
+  }
+  return end;
+};
