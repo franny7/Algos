@@ -29,21 +29,27 @@ nums is sorted in ascending order.
  */
 
 var search = function (nums, target) {
+  // create three pointers
   let start = 0;
   let end = nums.length;
   let mid;
 
+  // loop through as long as start is less than end
   while (start <= end) {
+    // set mid pointer to the middle index
     mid = Math.floor((start + end) / 2);
 
+    // if the target number is equal to the number on the index of mid, return mid
     if (nums[mid] === target) {
       return mid;
     }
+    // if the target is less than the number at our mid index, set our end var equal to the index before mid. else if the target is greater than the number at the mid index, set the start var equal to the index after mid.
     if (target < nums[mid]) {
       end = mid - 1;
     } else {
       start = mid + 1;
     }
   }
+  // if target is not in the nums array, return -1
   return -1;
 };
