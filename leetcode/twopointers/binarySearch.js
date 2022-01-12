@@ -27,3 +27,23 @@ nums is sorted in ascending order.
   @param {number} target
   @return {number}
  */
+
+var search = function (nums, target) {
+  let start = 0;
+  let end = nums.length;
+  let mid;
+
+  while (start <= end) {
+    mid = Math.floor((start + end) / 2);
+
+    if (nums[mid] === target) {
+      return mid;
+    }
+    if (target < nums[mid]) {
+      end = mid - 1;
+    } else {
+      start = mid + 1;
+    }
+  }
+  return -1;
+};
