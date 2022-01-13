@@ -39,10 +39,12 @@ Constraints:
   @return {number}
  */
 var findGCD = function (nums) {
+  // create variables for minimum number and maximum number
   let min = Infinity;
   let max = 0;
-  let temp;
+  // let temp;
 
+  // loop through nums array and check per iteration if the element is lower than the current min or higher than the current max, if so set it as min or max
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] < min) {
       min = nums[i];
@@ -52,10 +54,12 @@ var findGCD = function (nums) {
     }
   }
 
+  // use Euclid's algorithm to find the greatest common denominator
   while (min > 0) {
-    temp = min;
-    min = max % min;
-    max = temp;
+    [max, min] = [min, max % min];
+    // temp = min;
+    // min = max % min;
+    // max = temp;
   }
 
   return max;
