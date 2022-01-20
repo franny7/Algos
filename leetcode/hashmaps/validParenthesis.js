@@ -25,3 +25,31 @@ Constraints:
 1 <= s.length <= 104
 s consists of parentheses only '()[]{}'.
 */
+
+/*
+  @param {string} s
+  @return {boolean}
+ */
+var isValid = function (s) {
+  let stack = [];
+  for (let p of s) {
+    if (p === '(' || p === '{' || p === '[') {
+      stack.push(p);
+    } else {
+      let last = stack.pop();
+      let mapper = {
+        '}': '{',
+        ']': '[',
+        ')': '(',
+      };
+      if (mapper[p] !== last) {
+        return false;
+      }
+    }
+  }
+  if (stack.length === 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
