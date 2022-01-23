@@ -37,12 +37,12 @@ var isValid = function (s) {
       stack.push(p);
     } else {
       let last = stack.pop();
-      let mapper = {
+      let map = {
         '}': '{',
         ']': '[',
         ')': '(',
       };
-      if (mapper[p] !== last) {
+      if (map[p] !== last) {
         return false;
       }
     }
