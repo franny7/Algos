@@ -41,17 +41,24 @@ path is a valid absolute Unix path.
   @return {string}
  */
 var simplifyPath = function (path) {
+  // split the path into seperate indixes of in an array (.split returns an array)
   path = path.split('/');
 
+  // initiate an array
   let raw = [];
+
+  // loop through the array, if the item (index) is not a '' or a '.', push the element into raw array
   for (let item of path) {
     if (item !== '' && item !== '.') {
       raw.push(item);
     }
   }
 
+  // initiate result array and count variable
   let result = [];
   let count = 0;
+
+  // loop backward through raw, if index[i] is equal to '..', increment count. else if count is already greater than 0, decrement count. else if count is equal to 0, push raw[i] to result array
   for (let i = raw.length - 1; i > -1; i--) {
     if (raw[i] === '..') {
       count++;
@@ -62,9 +69,11 @@ var simplifyPath = function (path) {
     }
   }
 
+  // reverse what was pushed into result in the last step, then join the indices with a slash seperating them, then add a / at the beginning of the path because that's how paths are
   result = result.reverse();
   result = result.join('/');
   result = '/' + result;
 
+  // return the result
   return result;
 };
