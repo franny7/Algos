@@ -25,11 +25,15 @@ dominoes[i].length == 2
   @return {number}
  */
 var numEquivDominoPairs = function (dominoes) {
+  // create result variable and a map
   let result = 0;
   const freq = {};
 
+  // loop through array dominoes with each domino being the array at each index
   for (let domino of dominoes) {
+    // sort each array within the array
     domino = domino.sort();
+    // for our map, were creating these keys below and the value will be the frequency of the domino pair
     let key = `${domino[0]}_${domino[1]}`;
     if (key in freq) {
       freq[key]++;
@@ -38,6 +42,7 @@ var numEquivDominoPairs = function (dominoes) {
     }
   }
 
+  // loop through our map, check if the value per key is greater than 1. If so, add the formula below to our result
   for (let key in freq) {
     let value = freq[key];
     if (value > 1) {
@@ -45,7 +50,6 @@ var numEquivDominoPairs = function (dominoes) {
     }
   }
 
+  // return result
   return result;
 };
-
-// add pseudocode!!!
