@@ -26,27 +26,31 @@ strs[i] consists of only lower-case English letters.
   @return {string}
  */
 
+// use recursion helper method, pass in strs array, letterIndex(starting at 0), and result
+// create character varibale to indicate each character
+// loop through each word per same index of each word
+// create base case; if the letterIndex is greater than strs.length - 1, return res
+// if wordIndex is 0, set the char equal to that letter
+// if the letter and the char do not match, return res
+// if the letter through all the words in the array match, add the letter to res
+// call helper (recursive function) by increasing the letterIndex by one
+
 var longestCommonPrefix = function (strs) {
-  let wordIndex = 0;
-  let letterIndex = 0;
-  let res = [];
+  return helper(strs, 0, '');
+};
 
-  console.log(strs[wordIndex][letterIndex], strs[wordIndex + 1][letterIndex]);
-
-  let helper = (strs, wordIndex, letterIndex) => {
-    // base case
-    if (strs[wordIndex][letterIndex] !== strs[wordIndex + 1][letterIndex]) {
+let helper = (strs, letterIndex, res) => {
+  let char = null;
+  for (let wordIndex = 0; wordIndex < strs.length; wordIndex++) {
+    if (letterIndex > strs[wordIndex].length - 1) {
       return res;
     }
-    res.push(strs[wordIndex][letterIndex]);
-
-    // recursive case
-    if (strs[wordIndex][letterIndex] === strs[wordIndex + 1][letterIndex]) {
-      res.push(strs[wordIndex][letterIndex]);
+    if (wordIndex === 0) {
+      char = strs[wordIndex][letterIndex];
     }
-  };
-
-  helper(strs, wordIndex, letterIndex + 1);
-
-  return res;
+    if (strs[wordIndex][letterIndex] !== char) {
+      return res;
+    }
+  }
+  return helper(strs, letterIndex + 1, res + char);
 };
