@@ -25,11 +25,11 @@ Constraints:
   @return {number}
  */
 
-// create an array the length of n, fill them by defauly with the number 1
+// create an array the length of n, fill them by default with the number 1
 // initiate a count variable which will end up being our result
-// loop through each digit starting at 2, continue looping as long as i is less than n and increment i by one each time
-// as we loop through each index in arr, we will increment our count if the value of arr[i] is equal to 1. We will create a multiple var that will add i+i and as long as it is less than n we will set its index in arr equal to zero, then we will add i to multiple again and set that value equal to zero as long as the sum is less than n.
-// we will continue to do this as we increment i in our for loop and once the loop is done we will return our count
+// loop through each digit starting at 2, continue looping as long as i is less than n and increment i by 1 each time
+// as we loop through each index in arr, we will increment our count if the value of arr[i] is equal to 1. We will create a multiple var that will add i+i and as long as it is less than n we will set its index in arr equal to zero, then we will add i to multiple again and set that value equal to zero as long as the sum is less than n, continue the while loop until it's conditional statment is not true.
+// we will do the previous step as we increment i in our for loop and once the loop is done we will return our count
 
 var countPrimes = function (n) {
   const arr = new Array(n).fill(1);
