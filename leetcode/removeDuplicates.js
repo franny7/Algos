@@ -36,6 +36,6 @@ var removeDuplicates = (nums) => {
       nums[i] = nums[j];
     }
   }
-  // 5. return i + 1 to return all of the values that are in the adjusted nums array
+  // 5. return i + 1 to return the first i + 1 indices values in nums array
   return i + 1;
 };
