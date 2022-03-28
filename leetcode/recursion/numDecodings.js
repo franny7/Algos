@@ -38,9 +38,9 @@ Constraints:
 s contains only digits and may contain leading zero(s).
 */
 
-/**
- * @param {string} s
- * @return {number}
+/*
+  @param {string} s
+  @return {number}
  */
 
 // used memoization to prevent timing out, used a cache for that. Steps to using a cache are below
