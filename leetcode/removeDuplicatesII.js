@@ -39,17 +39,17 @@ var removeDuplicates = function (nums) {
 };
 
 // create helper recursive function
-const helper = (nums, start, next) => {
-  // as long as our next pointer hasn't passed our length of the array, continue looping
-  while (next < nums.length) {
-    // if our start pointer and our next pointer are equal, splice the next pointer's index. Else set our start pointer one index behind our next index and then set our next pointer to two indices ahead of our start index, doing this will make sure that they are both being incremented but also only 2 spots away from each other.
-    if (nums[start] == nums[next]) {
-      nums.splice(next, 1);
+const helper = (nums, first, second) => {
+  // as long as our second pointer hasn't passed our length of the array, continue looping
+  while (second < nums.length) {
+    // if our first pointer and our second pointer are equal, splice the second pointer's index. Else set our first pointer one index behind our second index and then set our second pointer to two indices ahead of our first index, doing this will make sure that they are both being incremented but also only 2 spots away from each other. (We can also just do first++ and second++)
+    if (nums[first] == nums[second]) {
+      nums.splice(second, 1);
     } else {
-      start = next - 1;
-      next = start + 2;
+      first = second - 1;
+      second = first + 2;
     }
   }
-  // return our first nums.length indices of our nums array (for example; if the array length is 5, this will return indices 0-4 which is the entire array)
+  // return our nums.length indices of our nums array (for example; if the array length is 5, this will return indices 0-4 which is the entire array)
   return nums.length;
 };
