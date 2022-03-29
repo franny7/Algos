@@ -9,22 +9,6 @@ Return k after placing the final result in the first k slots of nums.
 
 Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
 
-Custom Judge:
-
-The judge will test your solution with the following code:
-
-int[] nums = [...]; // Input array
-int[] expectedNums = [...]; // The expected answer with correct length
-
-int k = removeDuplicates(nums); // Calls your implementation
-
-assert k == expectedNums.length;
-for (int i = 0; i < k; i++) {
-    assert nums[i] == expectedNums[i];
-}
-If all assertions pass, then your solution will be accepted.
-
- 
 Example 1:
 Input: nums = [1,1,1,2,2,3]
 Output: 5, nums = [1,1,2,2,3,_]
@@ -36,16 +20,36 @@ Input: nums = [0,0,1,1,1,1,2,3,3]
 Output: 7, nums = [0,0,1,1,2,3,3,_,_]
 Explanation: Your function should return k = 7, with the first seven elements of nums being 0, 0, 1, 1, 2, 3 and 3 respectively.
 It does not matter what you leave beyond the returned k (hence they are underscores).
-
+ 
 Constraints:
 1 <= nums.length <= 3 * 104
 -104 <= nums[i] <= 104
 nums is sorted in non-decreasing order.
 */
 
+/*
+  @param {number[]} nums
+  @return {number}
+*/
+// Recursive Solution!!
+
 var removeDuplicates = function (nums) {
-  //     try iterating in reverse with two pointer approach
-  //     check if one of the pointers are a unique number, if both are the same then make sure the next one isnt the same because we can only have 2 of the same number at most
-  //     decrement the pointers according to if theres no more than 2 of the same number
-  //     if theres more than two of the same number, pop the right pointer until there is no more than two of the same number consecutively
+  // call recursive function starting my two pointers at the 0 and 2 index
+  return helper(nums, 0, 2);
+};
+
+// create helper recursive function
+const helper = (nums, start, next) => {
+  // as long as our next pointer hasn't passed our length of the array, continue looping
+  while (next < nums.length) {
+    // if our start pointer and our next pointer are equal, splice the next pointer's index. Else set our start pointer one index behind our next index and then set our next pointer to two indices ahead of our start index, doing this will make sure that they are both being incremented but also only 2 spots away from each other.
+    if (nums[start] == nums[next]) {
+      nums.splice(next, 1);
+    } else {
+      start = next - 1;
+      next = start + 2;
+    }
+  }
+  // return our first nums.length indices of our nums array (for example; if the array length is 5, this will return indices 0-4 which is the entire array)
+  return nums.length;
 };
