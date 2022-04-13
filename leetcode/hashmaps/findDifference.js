@@ -57,18 +57,17 @@ var findDifference = function (nums1, nums2) {
       map2[nums2[j]]++;
     }
   }
-  // loop through the keys in map1 while checking if the same key is in map2. if it is in both maps, delete them both
-  for (let i in map1) {
-    if (map2[i]) {
-      delete map1[i];
-      delete map2[i];
+  // loop through the keys in map1 while checking if the same key is in map2. if it is in both maps, delete them both, else push the key into firstArr creating the first array of unique elements from nums1
+  for (let key in map1) {
+    if (map2[key]) {
+      delete map1[key];
+      delete map2[key];
+    } else {
+      firstArr.push(key);
     }
   }
 
-  // these last two loops are to push the uniques keys into two seperate arrays
-  for (let key in map1) {
-    firstArr.push(key);
-  }
+  // loop through map2 pushing the now unique elements into secondArr
   for (let key in map2) {
     secondArr.push(key);
   }
