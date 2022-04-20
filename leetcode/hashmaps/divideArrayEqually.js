@@ -41,7 +41,7 @@ var divideArray = function (nums) {
     if (!map[nums[i]]) {
       map[nums[i]] = 1;
     } else {
-      map[nums[i]]++;
+      map[nums[i]] += 1;
     }
   }
 
