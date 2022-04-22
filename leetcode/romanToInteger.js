@@ -113,3 +113,59 @@ var romanToInt = (s) => {
   // 5. return total
   return total;
 };
+
+// Added another solution not as efficient
+
+// var romanToInt = (s) => {
+//     const lib = {
+//     'I': 1,
+//     'V': 5,
+//     'X': 10,
+//     'L': 50,
+//     'C': 100,
+//     'D': 500,
+//     'M': 1000,
+//     'IV': 4,
+//     'IX': 9,
+//     'XL': 40,
+//     'XC': 90,
+//     'CD': 400,
+//     'CM': 900
+//   }
+
+//   let i = 0;
+
+//   let result = 0;
+
+//   while (i < s.length) {
+//     if ("VLD".includes(s[i])) {
+//       result += lib[s[i]];
+//       i++
+//     } else if ("IXCM".includes(s[i])) {
+//       if (s[i] === s[i+1]) {
+// same order
+
+//         if (s[i] === s[i+2]) {
+// 3 of same character
+//           result += 3 * lib[s[i]];
+//           i += 3;
+//         } else {
+// 2 of same character
+//           result += 2 * lib[s[i]];
+//           i += 2;
+//         }
+//       } else if (lib[s[i]] > lib[s[i+1]]) {
+// lower order
+//         result += lib[s[i]];
+//         i++;
+//       } else {
+// higher order; perform subtraction
+//         result += lib[s.slice(i, i + 2)];
+//         i += 2;
+//       }
+//     }
+
+//   }
+
+//   return result;
+// }
