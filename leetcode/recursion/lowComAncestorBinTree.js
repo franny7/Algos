@@ -105,3 +105,5 @@ var lowestCommonAncestor = function (root, p, q) {
     return pathQ[i - 1];
   }
 };
+
+// review this problem in outco recording! 4/22/22
