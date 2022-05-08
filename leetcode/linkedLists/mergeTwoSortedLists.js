@@ -51,3 +51,38 @@ var mergeTwoLists = function (l1, l2) {
   l1.next = mergeTwoLists(l1.next, l2);
   return l1;
 };
+
+// Outco Solution
+var mergeTwoLists = function (l1, l2) {
+  // use this new node as a starting point, like a placeholder. set current to it
+  const placeholder = new ListNode(null);
+  let current = placeholder;
+
+  // create variables for both the linked lists
+  let u = l1;
+  let v = l2;
+
+  // loop through as long as u and v are both still not completed
+  while (u !== null && v !== null) {
+    // comparison
+    if (u.val < v.val) {
+      current.next = u;
+      u = u.next;
+    } else {
+      current.next = v;
+      v = v.next;
+    }
+
+    current = current.next;
+  }
+
+  // here we are making sure that the rest of whichever list hasn't been added will be added at the end once the other list has ended
+  if (u !== null) {
+    current.next = u;
+  } else if (v !== null) {
+    current.next = v;
+  }
+
+  // return pllaceholder.next because that will return the whole list and not just the first node (not just the placeholder)
+  return placeholder.next;
+};
