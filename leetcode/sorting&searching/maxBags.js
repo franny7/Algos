@@ -58,7 +58,7 @@ var maximumBags = function (capacity, rocks, additionalRocks) {
   // create bags variable startinf off at 0
   let bags = 0;
 
-  // loop through as long as our additionalRocks is greater than or equal to our value of diff[bags], and increment our bags as we go meaning that the current bag was filled to its max
+  // loop through as long as our additionalRocks is greater than or equal to our value of diff[bags], subtract our additional rocks to the amount it takes to maximize the current bag, and increment our bags as we go meaning that the current bag was filled to its max
   while (additionalRocks >= diff[bags]) {
     additionalRocks -= diff[bags];
     bags++;
