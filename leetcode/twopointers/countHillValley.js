@@ -49,7 +49,7 @@ var countHillValley = function (nums) {
   let count = 0;
 
   // loop through as long as next is not greater than the length of our array
-  while (next <= nums.length) {
+  while (next < nums.length) {
     // check if curr is greater than its neighbor indices, if so its a hill so increment count. if curr is less than its neighbor indices, its a valley so increment count. else if curr is greater or smaller than its prev neighbor and equal to its next neighbor, we will create a temp var that will increment to next index as long as it is still equal to curr, once its not equal we will check if it is greater or smaller than curr to determine if its a valley or hill or neither.
     if (nums[curr] > nums[curr - 1] && nums[curr] > nums[next]) {
       count++;
