@@ -43,9 +43,11 @@ s and target consist of lowercase English letters.
   @return {number}
  */
 var rearrangeCharacters = function (s, target) {
+  // create two maps, one for the targets frequencies and the other for s frequencies
   const targetFreq = {};
   const sFreq = {};
 
+  // check if i in target map exists if it does increment else set to 1
   for (let i = 0; i < target.length; i++) {
     let char = target[i];
 
@@ -56,6 +58,7 @@ var rearrangeCharacters = function (s, target) {
     }
   }
 
+  // check if i in s map exists if it does increment else set to 1
   for (let i = 0; i < s.length; i++) {
     let char = s[i];
 
@@ -68,6 +71,7 @@ var rearrangeCharacters = function (s, target) {
 
   let result = Infinity;
 
+  // loop through target map, if theres no target character in s map return 0 since that means theres no solutions
   for (let targetChar in targetFreq) {
     if (!(targetChar in sFreq)) {
       // target char doesn't exist in s, no solutions possible
@@ -76,6 +80,7 @@ var rearrangeCharacters = function (s, target) {
       let sOccurences = sFreq[targetChar];
       let targetOccurences = targetFreq[targetChar];
 
+      // return the result which would be the divisor of sOccurences and targetOccurences
       result = Math.min(result, Math.floor(sOccurences / targetOccurences));
     }
   }
