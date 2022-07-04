@@ -45,6 +45,7 @@ All prices will have at most 10 digits.
  */
 
 const isPrice = (word) => {
+  // check if the word starts with a dollar sign because that means its valid
   if (word[0] === '$') {
     let price = word.slice(1);
 
@@ -52,6 +53,7 @@ const isPrice = (word) => {
       return false;
     }
 
+    // check if the value of i is anything other than a number or period, if so return false
     for (let i = 0; i < price.length; i++) {
       if ('.0123456789'.indexOf(price[i]) === -1) {
         return false;
@@ -64,6 +66,7 @@ const isPrice = (word) => {
   }
 };
 
+// this function calculates the discount
 const performDiscount = (word, discount) => {
   let price = word.slice(1);
 
@@ -72,6 +75,7 @@ const performDiscount = (word, discount) => {
   return '$' + (((100 - discount) / 100) * price).toFixed(2);
 };
 
+// this function is performing the two functions above and return our whole sentence with the new discounted price.
 var discountPrices = function (sentence, discount) {
   sentence = sentence.split(' ');
 
