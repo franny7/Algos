@@ -35,9 +35,11 @@ Follow up: Can you solve it in O(n) time and O(1) space?
   @return {boolean}
  */
 var backspaceCompare = function (s, t) {
+  // create stack for s and t
   const stackS = [];
   const stackT = [];
 
+  // loop through s and t checking if the current index is equal to #, if so pop the last character in stack since # equals to backspace. If not equal to #, push the character to stack.
   for (let i = 0; i < s.length; i++) {
     let char = s[i];
     if (char === '#') {
@@ -56,6 +58,7 @@ var backspaceCompare = function (s, t) {
     }
   }
 
+  // join each stack and compare them, if equal return true else return false
   let wordS = stackS.join('');
   let wordT = stackT.join('');
 
