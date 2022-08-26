@@ -50,3 +50,30 @@ var subarraySum = function (nums, k) {
   // return our count variable
   return count;
 };
+
+// ANOTHER SOLUTION BELOW RON'S SOLUTION
+// var subarraySum = function(nums, k) {
+// 	let total = 0;
+//   const freq = {};
+//   freq[0] = 1;
+
+//   let runningTotal = 0;
+
+//   for(let item of nums){
+//     runningTotal += item;
+//     let subtractRes = runningTotal - k;
+//     let addRes = runningTotal + k;
+
+//     if(subtractRes in freq){
+//       total += freq[subtractRes];
+//     }
+
+//     if(runningTotal in freq){
+//       freq[runningTotal]++;
+//     } else {
+//       freq[runningTotal] = 1;
+//     }
+//   }
+
+//   return total;
+// }
