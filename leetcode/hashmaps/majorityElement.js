@@ -38,4 +38,4 @@ let majorityElement = (nums) => {
   }
 };
 
-///// Follow-up: Could you solve the problem in linear time and in O(1) space?
+// Follow-up: Could you solve the problem in linear time and in O(1) space?
