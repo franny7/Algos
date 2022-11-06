@@ -43,3 +43,40 @@ var isPalindrome = function (s) {
   // 4. turn paldrome arrya into a string, if it is equal to our first string, return true else false
   return palindrome.join('') === string ? true : false;
 };
+
+// Ron's Outco solution!!! Map solution
+/*
+var isPalindrome = function(s) {
+  let interesting = 'qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM';
+
+  let library = new Set();
+
+  for (let i = 0; i < interesting.length; i++) {
+    library.add(interesting[i]);
+  }
+
+  let arr = [];
+
+  for (let i = 0; i < s.length; i++) {
+    let char = s[i];
+
+    if (library.has(char)) {
+      arr.push(char.toLowerCase());
+    }
+  }
+
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left < right) {
+    if (arr[left] !== arr[right]) {
+      return false;
+    }
+
+    left++;
+    right--;
+  }
+
+  return true;
+};
+*/
