@@ -34,20 +34,21 @@ The tree consists only of the root, its left child, and its right child.
   @param {TreeNode} root
   @return {boolean}
  */
-var checkTree = function (root) {
-  let res = '';
-  if (root.val === root.left.val + root.right.val) {
-    res = true;
-  } else {
-    res = false;
-  }
-  return res;
-};
+// readable version
+// var checkTree = function (root) {
+//   let res = '';
+//   if (root.val === root.left.val + root.right.val) {
+//     res = true;
+//   } else {
+//     res = false;
+//   }
+//   return res;
+// };
 
 // optimized version below
 
-// var checkTree = function(root) {
-//     let res = '';
-//     root.val === (root.left.val + root.right.val) ? res = true : res = false;
-//     return res;
-// };
+var checkTree = function (root) {
+  let res = '';
+  root.val === root.left.val + root.right.val ? (res = true) : (res = false);
+  return res;
+};
