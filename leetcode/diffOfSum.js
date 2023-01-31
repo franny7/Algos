@@ -36,15 +36,18 @@ Constraints:
   @return {number}
 */
 var differenceOfSum = function (nums) {
+  // split into elements and digits
   let digits = nums.toString().split('');
   let elements = nums.toString().split(',');
 
+  // get rid of excessive commas
   for (let i = 0; i < digits.length; i++) {
     if (digits[i] === ',') {
       digits.splice(i, 1);
     }
   }
 
+  // convert strings into integers for both digits and els
   let digitsNums = [];
   for (let i = 0; i < digits.length; i++) {
     digitsNums.push(parseInt(digits[i]));
@@ -55,9 +58,11 @@ var differenceOfSum = function (nums) {
     elNums.push(parseInt(elements[i]));
   }
 
+  // use reduce to find the sum of both arr
   let digitVal = 0;
   let sumOfDigits = digitsNums.reduce((acc, curr) => acc + curr, digitVal);
   let sumOfEl = elNums.reduce((acc, curr) => acc + curr, digitVal);
 
+  // return abs val of sum of both arrays
   return Math.abs(sumOfDigits - sumOfEl);
 };
