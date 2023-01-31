@@ -31,10 +31,6 @@ Constraints:
 1 <= nums[i] <= 2000
 */
 
-/*
-  @param {number[]} nums
-  @return {number}
-*/
 var differenceOfSum = function (nums) {
   // split into elements and digits
   let digits = nums.toString().split('');
@@ -65,4 +61,31 @@ var differenceOfSum = function (nums) {
 
   // return abs val of sum of both arrays
   return Math.abs(sumOfDigits - sumOfEl);
+};
+
+/* !!!!!Better solution!!!!! */
+
+var differenceOfSum = function (nums) {
+  // split the digits array to seperate each digit
+  let digits = nums.toString().split('');
+  let elements = nums;
+
+  // if not a comma, turn into an integer instead of string and add it to digits total sum
+  let dTotal = 0;
+  for (let i = 0; i < digits.length; i++) {
+    if (digits[i] !== ',') {
+      dTotal += parseInt(digits[i]);
+    }
+  }
+
+  // if not a comma, turn into an integer instead of string and add it to elements total sum
+  let eTotal = 0;
+  for (let i = 0; i < elements.length; i++) {
+    if (elements[i] !== ',') {
+      eTotal += parseInt(elements[i]);
+    }
+  }
+
+  // return absolute difference of both summed up arrays
+  return Math.abs(dTotal - eTotal);
 };
