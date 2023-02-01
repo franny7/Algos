@@ -61,3 +61,28 @@ var numberOfPairs = function (nums) {
   }
   return [pairs, length];
 };
+
+/*  ANOTHER SOLUTION SLIGHTLY MORE EFFICIENT!!! */
+// Similar solution just changed up the for...of loop
+
+var numberOfPairs = function (nums) {
+  let map = {};
+  let pairs = 0;
+  let length = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (map[nums[i]]) {
+      map[nums[i]]++;
+    } else {
+      map[nums[i]] = 1;
+    }
+  }
+
+  for (let [key, value] of Object.entries(map)) {
+    pairs += Math.floor(value / 2);
+    if (value % 2 !== 0) {
+      length++;
+    }
+  }
+  return [pairs, length];
+};
