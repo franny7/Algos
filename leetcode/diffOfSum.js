@@ -89,3 +89,5 @@ var differenceOfSum = function (nums) {
   // return absolute difference of both summed up arrays
   return Math.abs(dTotal - eTotal);
 };
+
+// For both solutions can also add a res var and return tha abs value of that instead of performing an operation within Math.abs
